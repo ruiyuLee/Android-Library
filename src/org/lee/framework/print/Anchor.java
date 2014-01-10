@@ -1,7 +1,6 @@
 package org.lee.framework.print;
 
 import org.lee.java.util.Empty;
-import org.lee.java.util.ToString;
 import org.lee.java.util.Type;
 
 /**
@@ -12,8 +11,9 @@ import org.lee.java.util.Type;
  */
 public class Anchor {
 
-	static final boolean DEBUG = true;
-	static final boolean hasPackageName = false;
+	public static final String TAG = "TAG";
+	public static final boolean DEBUG = true;
+	public static final boolean hasPackageName = false;
 
 	/**
 	 * 数组打印分离符
@@ -66,21 +66,18 @@ public class Anchor {
 		println(stringBuffer.toString() + MessageEnder);
 	}
 
-	public static void p(int[] arrays) {
-		anchor("");
-		String msg = ToString.toString(arrays);
-		println(msg + MessageEnder);
+	public static String toStrackTrace(Object cls) {
+		StackTraceElement[] stack = new Exception().getStackTrace();
+		return stack[2].toString() + MessageHeader + cls.toString()
+				+ MessageEnder;
 	}
 
-	public static void p(String[] arrays) {
-		anchor("");
-		String msg = ToString.toString(arrays);
-		println(msg + MessageEnder);
+	public static void e(Object cls) {
+		String str = toStrackTrace(cls);
+		android.util.Log.e(TAG, str);
 	}
 
-	public static final String TAG = "TAG";
-
-	protected static void println(String msg) {
+	public static void println(String msg) {
 		android.util.Log.d(TAG, msg);
 	}
 }

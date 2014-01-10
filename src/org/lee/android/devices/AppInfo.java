@@ -1,6 +1,6 @@
 package org.lee.android.devices;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;

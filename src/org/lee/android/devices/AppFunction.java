@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -272,6 +272,7 @@ public class AppFunction {
 					try {
 						in = new FileInputStream(file);
 						ObjectInputStream objectIn = new ObjectInputStream(in);
+						@SuppressWarnings("unchecked")
 						HashMap<String, Serializable> map = (HashMap<String, Serializable>) objectIn
 								.readObject();
 						value = map.get(key);

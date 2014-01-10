@@ -1,4 +1,4 @@
-package org.lee.android.log;
+package org.lee.android.util;
 
 import org.lee.framework.print.Anchor;
 import org.lee.java.util.ToString;
@@ -9,13 +9,7 @@ import org.lee.java.util.ToString;
  * @author ruiyuLee
  * 
  */
-public class ALog extends Anchor {
-
-	public static final String TAG = "TAG";
-
-	public static void d() {
-		println(null);
-	}
+public class Log extends Anchor {
 
 	public static void d(Object cls) {
 		println(cls.toString());
@@ -25,4 +19,5 @@ public class ALog extends Anchor {
 		String str = ToString.toString(a);
 		println(str);
 	}
+
 }

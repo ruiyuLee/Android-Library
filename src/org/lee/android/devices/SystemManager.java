@@ -2,7 +2,7 @@ package org.lee.android.devices;
 
 import java.util.List;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -23,7 +23,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 public class SystemManager {
-
 
 	/**
 	 * 获取屏幕的系统亮度
@@ -303,11 +302,11 @@ public class SystemManager {
 	 * @param context
 	 *            context
 	 */
+	@SuppressWarnings("deprecation")
 	@SuppressLint("NewApi")
 	public static void copyToClipboard(final String text, Context context) {
 		if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.HONEYCOMB) {
 			// api level < 11
-			@SuppressWarnings("deprecation")
 			android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context
 					.getApplicationContext().getSystemService(
 							Context.CLIPBOARD_SERVICE);

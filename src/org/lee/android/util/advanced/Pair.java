@@ -55,6 +55,7 @@ public class Pair<F, S> {
 	 * @return true if the underlying objects of the Pair are both considered
 	 *         equals()
 	 */
+	@SuppressWarnings("unchecked")
 	public boolean equals(Object o) {
 		if (o == this) {
 			return true;

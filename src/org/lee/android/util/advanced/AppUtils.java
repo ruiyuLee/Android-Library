@@ -1,6 +1,6 @@
 package org.lee.android.util.advanced;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

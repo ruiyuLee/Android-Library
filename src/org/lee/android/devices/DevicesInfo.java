@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.lee.android.util.ExtraTools;
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.app.Activity;
 import android.content.Context;

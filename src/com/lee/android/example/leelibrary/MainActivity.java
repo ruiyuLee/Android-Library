@@ -1,8 +1,8 @@
 package com.lee.android.example.leelibrary;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
-import com.lee.android.R;
+import com.lee.android.libs.R;
 
 import android.app.Activity;
 import android.os.Bundle;

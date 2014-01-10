@@ -1,4 +1,4 @@
-package org.lee.android.utils;
+package org.lee.android.util;
 
 import android.content.Context;
 

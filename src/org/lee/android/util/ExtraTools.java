@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.lee.android.util.algorithm.GZIP;
-import org.lee.android.utils.Log;
 
 import android.content.Context;
 import android.os.storage.StorageManager;

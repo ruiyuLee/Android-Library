@@ -2,16 +2,19 @@ package org.lee.android.util.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.content.Context;
 
@@ -73,6 +76,29 @@ public class FileManager {
 		}
 
 		return bResult;
+	}
+
+	/**
+	 * 读取文件
+	 * 
+	 * @param context
+	 * @param file
+	 * @return
+	 */
+	public static String read(Context context, String file) {
+		try {
+			FileInputStream fin = context.openFileInput(file);
+			InputStreamReader isr = new InputStreamReader(fin);
+			BufferedReader br = new BufferedReader(isr);
+			StringBuffer buffer = new StringBuffer();
+			String text;
+			while ((text = br.readLine()) != null)
+				buffer.append(text);
+			return buffer.toString();
+		} catch (IOException e) {
+			Log.anchor("IOException:" + e);
+			return null;
+		}
 	}
 
 	/** unzip buffer size. */
@@ -153,11 +179,9 @@ public class FileManager {
 	 *            文件或文件夹
 	 * @return 是否成功删除
 	 */
-	public static boolean deleteFile(File file) {
-		Log.d("dele file:" + file);
-
+	public static boolean deleteFile(String path) {
 		boolean isDeletedAll = true;
-
+		File file = new File(path);
 		if (file.exists()) {
 			// 判断是否是文件,直接删除文件
 			if (file.isFile()) {
@@ -168,7 +192,7 @@ public class FileManager {
 				File[] files = file.listFiles();
 
 				for (int i = 0; i < files.length; i++) {
-					isDeletedAll &= deleteFile(files[i]); // 迭代删除文件夹内容
+					isDeletedAll &= deleteFile(files[i].getAbsolutePath()); // 迭代删除文件夹内容
 				}
 
 				isDeletedAll &= file.delete();

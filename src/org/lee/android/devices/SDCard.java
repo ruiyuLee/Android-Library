@@ -3,7 +3,7 @@ package org.lee.android.devices;
 import java.io.File;
 import java.io.IOException;
 
-import org.lee.android.utils.Log;
+import org.lee.android.util.Log;
 
 import android.content.Context;
 import android.os.Environment;
