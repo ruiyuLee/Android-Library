@@ -20,9 +20,9 @@ import android.util.Log;
  * @author liubaowen
  * 
  */
-public final class PresetFile {
+public final class AssetsFiler {
 	/** TAG */
-	private static final String TAG = PresetFile.class.getSimpleName();
+	private static final String TAG = AssetsFiler.class.getSimpleName();
 	/** DEBUG */
 	private static final boolean DEBUG = true;
 	/** 预设文件 */
@@ -34,7 +34,7 @@ public final class PresetFile {
 	/** 上下文 */
 	private Context mContext;
 	/** 单例 */
-	private static volatile PresetFile instance = null;
+	private static volatile AssetsFiler instance = null;
 
 	/**
 	 * 单例方法
@@ -43,11 +43,11 @@ public final class PresetFile {
 	 *            Context
 	 * @return PresetFile单例
 	 */
-	public static PresetFile getInstance(Context context) {
+	public static AssetsFiler getInstance(Context context) {
 		if (instance == null) {
-			synchronized (PresetFile.class) {
+			synchronized (AssetsFiler.class) {
 				if (instance == null) {
-					instance = new PresetFile(context);
+					instance = new AssetsFiler(context);
 				}
 			}
 		}
@@ -61,7 +61,7 @@ public final class PresetFile {
 	 * @param context
 	 *            Context
 	 */
-	private PresetFile(Context context) {
+	private AssetsFiler(Context context) {
 		mContext = context;
 		init();
 		parsePresetFile();

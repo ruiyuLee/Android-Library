@@ -1,5 +1,7 @@
 package org.lee.android.util.io;
 
+import android.content.Context;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -14,11 +16,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.lee.android.util.Log;
-
-import android.content.Context;
-
-public class FileManager {
+public class Filer {
 	/**
 	 * 缓存文件
 	 * 
@@ -96,7 +94,7 @@ public class FileManager {
 				buffer.append(text);
 			return buffer.toString();
 		} catch (IOException e) {
-			Log.anchor("IOException:" + e);
+            e.printStackTrace();
 			return null;
 		}
 	}
@@ -175,7 +173,7 @@ public class FileManager {
 	/**
 	 * 删除指定文件、文件夹内容
 	 * 
-	 * @param file
+	 * @param path
 	 *            文件或文件夹
 	 * @return 是否成功删除
 	 */
@@ -186,24 +184,15 @@ public class FileManager {
 			// 判断是否是文件,直接删除文件
 			if (file.isFile()) {
 				isDeletedAll &= file.delete();
-
-				// 遍历删除一个文件目录
+				// 遍历删除一个目录
 			} else if (file.isDirectory()) {
 				File[] files = file.listFiles();
-
 				for (int i = 0; i < files.length; i++) {
 					isDeletedAll &= deleteFile(files[i].getAbsolutePath()); // 迭代删除文件夹内容
 				}
-
 				isDeletedAll &= file.delete();
-
-			} else {
-				Log.d("a special file:" + file);
 			}
-		} else {
-			Log.d("not found the file to delete:" + file);
 		}
-
 		return isDeletedAll;
 	}
 }

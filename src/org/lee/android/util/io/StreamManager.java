@@ -27,7 +27,6 @@ public class StreamManager {
 		return null;
 	}
 
-	// add by fujiaxing 20120110 END>
 	/**
 	 * 从输入流中读出byte数组
 	 * 
